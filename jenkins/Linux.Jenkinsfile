@@ -11,10 +11,10 @@ pipeline {
     // Artifacts Folder
     ArtifactsFolder = "Artifacts"
     // LifeTime Specific Variables
-    LifeTimeHostname = 'https://sysmanager-dev.outsystemscloud.com/LifeTimeCloudConnect/'
+    LifeTimeHostname = 'https://sysmanager-dev.outsystemscloud.com/LifeTime/'
     LifeTimeAPIVersion = 2
     // Authentication Specific Variables
-    AuthorizationToken = credentials('jenkins_labs ')
+    AuthorizationToken = credentials('jenkins_labs')
     // Environments Specification Variables
     /*
     * Pipeline for 5 Environments:
@@ -28,7 +28,7 @@ pipeline {
     //RegressionEnvironment = 'Regression'
     //AcceptanceEnvironment = 'Acceptance'
     //PreProductionEnvironment = 'Pre-Production'
-    //ProductionEnvironment = 'Production'
+    ProductionEnvironment = 'Production'
     // Regression URL Specification
     //ProbeEnvironmentURL = 'https://regression-env.acmecorp.com/'
     //BddEnvironmentURL = 'https://regression-env.acmecorp.com/'
