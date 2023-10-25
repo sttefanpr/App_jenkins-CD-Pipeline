@@ -14,7 +14,7 @@ pipeline {
     LifeTimeHostname = 'https://sysmanager-dev.outsystemscloud.com/LifeTime/'
     LifeTimeAPIVersion = 2
     // Authentication Specific Variables
-    AuthorizationToken = credentials('jenkins_labs')
+    AuthorizationToken = credentials('JenkinsSys')
     // Environments Specification Variables
     /*
     * Pipeline for 5 Environments:
