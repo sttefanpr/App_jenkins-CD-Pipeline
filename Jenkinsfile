@@ -100,7 +100,7 @@ pipeline {
     ArtifactsFolder = 'Artifacts'
     LifeTimeHostname = 'https://sysmanager-dev.outsystemscloud.com/LifeTime/'
     LifeTimeAPIVersion = 2
-    AuthorizationToken = credentials('JenkinsSys')
+    AuthorizationToken = credentials('LifeTimeServiceAccountToken')
     DevelopmentEnvironment = 'Development'
     ProductionEnvironment = 'Production'
     OSPackageVersion = '0.4.0'
