@@ -52,8 +52,8 @@ pipeline {
     PreProductionEnvironmentLabel = 'PreProduction'
     ProductionEnvironmentLabel = 'Production'
     // Regression URL Specification
-    CICDProbeEnvironmentURL = 'https://regression-env.acmecorp.com/'
-    BDDFrameworkEnvironmentURL = 'https://regression-env.acmecorp.com/'
+    CICDProbeEnvironmentURL = 'https://sysmanager-dev.outsystemscloud.com'
+    BDDFrameworkEnvironmentURL = 'https://sysmanager-dev.outsystemscloud.com'
     // OutSystems PyPI package version
     OSPackageVersion = '0.6.0'
   }
