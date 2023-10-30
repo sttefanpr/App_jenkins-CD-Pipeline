@@ -34,7 +34,7 @@ pipeline {
     ManifestFile = "trigger_manifest.json"
     // LifeTime Specific Variables
     LifeTimeHostname = 'sysmanager-dev.outsystemscloud.com'
-    LifeTimeAPIVersion = 0.1
+    LifeTimeAPIVersion = 2
     // Authentication Specific Variables
     AuthorizationToken = credentials('LifeTimeServiceAccountToken')
     // Environments Specification Variables
