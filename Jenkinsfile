@@ -98,7 +98,7 @@ pipeline {
   }
   environment {
     ArtifactsFolder = 'Artifacts'
-    LifeTimeHostname = 'https://sysmanager-dev.outsystemscloud.com/LifeTimeCloudConnect/'
+    LifeTimeHostname = 'https://sysmanager-dev.outsystemscloud.com'
     LifeTimeAPIVersion = 2
     DevelopmentEnvironment = 'Development'
     ProductionEnvironment = 'Production'
