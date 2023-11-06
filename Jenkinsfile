@@ -18,18 +18,14 @@ pipeline {
     // Authentication Specific Variables
     AuthorizationToken = 'eyJhbGciOiJSUzI1NiIsImtpZCI6ImQ0YTEzOTMwLTM1ZGItNDQwMi1iN2EyLWVmZWVlN2FmOGIyOCIsInR5cCI6IkpXVCJ9.eyJpYXQiOiIxNjk4MjQ2ODI5Iiwic3ViIjoiTTJVeVpqRXlZMkl0TVdVeFlTMDBZamMyTFRrMU5tRXRZMlEwTVdRNVlUTmtOR1F4IiwianRpIjoiWVVYaTNreXRYayIsImV4cCI6MTc2MTQwNTIyOSwiaXNzIjoibGlmZXRpbWUiLCJhdWQiOiJsaWZldGltZSJ9.fpQNuWMXoGZ_8z8ub-vO6pKJccyxE1iSlqJAisBvS_XO7-X9i6N19EdviXU-D0uXJ4QET8pKsxG18rZ9tigRmd8j4xA5uyA2KQM0t8VEwjvx-wkv1bwhYEADHts4HkhTczRNjfZa_ASaMlf3NUdmRSlfUrAbMN8oICmtzODgxMulz_UAWvBNI8jzBezJHn1hng0u6nFB2Ts7VUaoEedYPahrrIYzhlDmjOJ70NPd-OSBUcONaY7_QdUUe2_SKSBFakMSmaJuHGDqUil9MdE8Nosg4KJSwBo-pwQ8_DvRrL4EU_U_2MrFy3U4zQRuvUZLazSNeZrFjh4C3e_p1jZdrg' //credentials('LifeTimeServiceAccountToken')
     // Environments Specification Variables
+
+    DevelopmentEnvironment = 'Development'
+    ProductionEnvironment = 'Production'
     
-    * Pipeline for 5 Environments:
-    *   Development Environment    -> Where you develop your applications. This should be the default environment you connect with service studio.
-    *   Regression Environment     -> Where your automated tests will test your applications.
-    *   Acceptance Environment     -> Where you run your acceptance tests of your applications.
-    *   PreProduction Environment  -> Where you prepare your apps to go live.
-    *   Production Environment     -> Where your apps are live.
-    */
     DevelopmentEnvironmentLabel = 'Development'
-    RegressionEnvironmentLabel = 'Regression'
-    AcceptanceEnvironmentLabel = 'Acceptance'
-    PreProductionEnvironmentLabel = 'PreProduction'
+    //RegressionEnvironmentLabel = 'Regression'
+    //AcceptanceEnvironmentLabel = 'Acceptance'
+    //PreProductionEnvironmentLabel = 'PreProduction'
     ProductionEnvironmentLabel = 'Production'
     // Regression URL Specification
     CICDProbeEnvironmentURL = 'https://sysmanager-dev.outsystemscloud.com'
@@ -59,7 +55,7 @@ pipeline {
           echo "Pipeline run triggered remotely by '${params.TriggeredBy}' for the following applications (including tests): '${params.ApplicationScopeWithTests}'"
           sh(script: "python3 -m outsystems.pipeline.fetch_lifetime_data --artifacts \"${env.ArtifactsFolder}\" --lt_url ${env.LifeTimeHostname} --lt_token ${env.AuthorizationToken} --lt_api_version ${env.LifeTimeAPIVersion}", label: 'Retrieve list of Environments and Applications')
           lock(resource: 'deployment-plan-REG') {
-            sh(script: "python3 -m outsystems.pipeline.deploy_latest_tags_to_target_env --artifacts \"${env.ArtifactsFolder}\" --lt_url ${env.LifeTimeHostname} --lt_token ${env.AuthorizationToken} --lt_api_version ${env.LifeTimeAPIVersion} --source_env \"${env.DevelopmentEnvironment}\" --destination_env \"${env.RegressionEnvironment}\" --app_list \"${params.ApplicationScopeWithTests}\"", label: "Deploy latest application tags (including tests) to ${env.RegressionEnvironment}")
+            sh(script: "python3 -m outsystems.pipeline.deploy_latest_tags_to_target_env --artifacts \"${env.ArtifactsFolder}\" --lt_url ${env.LifeTimeHostname} --lt_token ${env.AuthorizationToken} --lt_api_version ${env.LifeTimeAPIVersion} --source_env \"${env.DevelopmentEnvironment}\" --destination_env \"${env.ProductionEnvironment}\" --app_list \"${params.ApplicationScopeWithTests}\"", label: "Deploy latest application tags (including tests) to ${env.RegressionEnvironment}")
           }
 
         }
