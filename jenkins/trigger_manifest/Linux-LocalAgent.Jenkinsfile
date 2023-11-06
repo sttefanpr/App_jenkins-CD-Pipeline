@@ -59,10 +59,12 @@ pipeline {
   }
   stages {
     stage('Get and Deploy Latest Tags') {
-      echo "Auth token '${env.AuthorizationToken}'" 
+       
       agent any // Replace by specific label for narrowing down to OutSystems pipeline-specific agents
       steps {
         echo "Pipeline run triggered remotely by '${params.TriggeredBy}'"
+        echo "Auth token: '${env.AuthorizationToken}'"
+
         // Create folder for storing artifacts
         sh script: "mkdir ${env.ArtifactsFolder}", label: 'Create artifacts folder'
         // Create manifest folder
