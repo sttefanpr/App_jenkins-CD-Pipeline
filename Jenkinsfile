@@ -15,6 +15,10 @@ pipeline {
     stage('Get and Deploy Latest Tags') {
       steps {
         withPythonEnv(pythonInstallation: 'python3') {
+
+          echo "OLA 1"
+          echo "Auth token: '${env.AuthorizationToken}'"
+          
           echo "Pipeline run triggered remotely by '${params.TriggeredBy}' for the following applications (including tests): '${params.ApplicationScopeWithTests}'"
           sh(script: "python3 -m outsystems.pipeline.fetch_lifetime_data --artifacts \"${env.ArtifactsFolder}\" --lt_url ${env.LifeTimeHostname} --lt_token ${env.AuthorizationToken} --lt_api_version ${env.LifeTimeAPIVersion}", label: 'Retrieve list of Environments and Applications')
           lock(resource: 'deployment-plan-REG') {
