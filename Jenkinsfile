@@ -1,8 +1,8 @@
 pipeline {
   agent any
   parameters {
-    // Pipeline parameters are automatically filled by LT Trigger plugin
-    string(name: 'TriggerManifest', defaultValue: '', description: 'Trigger manifest artifact (in JSON format) for the current pipeline run.')
+    string(name: 'ApplicationScope', defaultValue: '', description: 'Comma-separated list of LifeTime applications to deploy.')
+    string(name: 'ApplicationScopeWithTests', defaultValue: '', description: 'Comma-separated list of LifeTime applications to deploy (including test applications)')
     string(name: 'TriggeredBy', defaultValue: 'N/A', description: 'Name of LifeTime user that triggered the pipeline remotely.')
   }
   options { skipStagesAfterUnstable() }
@@ -156,13 +156,5 @@ pipeline {
 
     }
 
-  }
-  options {
-    skipStagesAfterUnstable()
-  }
-  parameters {
-    string(name: 'ApplicationScope', defaultValue: '', description: 'Comma-separated list of LifeTime applications to deploy.')
-    string(name: 'ApplicationScopeWithTests', defaultValue: '', description: 'Comma-separated list of LifeTime applications to deploy (including test applications)')
-    string(name: 'TriggeredBy', defaultValue: 'N/A', description: 'Name of LifeTime user that triggered the pipeline remotely.')
   }
 }
