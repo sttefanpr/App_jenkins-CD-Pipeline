@@ -65,7 +65,7 @@ pipeline {
         echo "OLA, PASSEI AQUI!"
         echo "Pipeline run triggered remotely by '${params.TriggeredBy}'"
         echo "Auth token: '${env.AuthorizationToken}'"
-        echo "OLA, PASSEI AQUI 2!"
+        echo "OLA, PASSEI AQUI 2 !"
 
         // Create folder for storing artifacts
         sh script: "mkdir ${env.ArtifactsFolder}", label: 'Create artifacts folder'
