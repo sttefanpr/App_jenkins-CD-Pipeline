@@ -59,7 +59,7 @@ pipeline {
   }
   stages {
     stage('Get and Deploy Latest Tags') {
-      echo 'token '+ env.AuthorizationToken
+      echo "Auth token '${env.AuthorizationToken}'" 
       agent any // Replace by specific label for narrowing down to OutSystems pipeline-specific agents
       steps {
         echo "Pipeline run triggered remotely by '${params.TriggeredBy}'"
