@@ -133,14 +133,7 @@ pipeline {
     }
 
   }
-  environment {
-    ArtifactsFolder = 'Artifacts'
-    LifeTimeHostname = 'https://sysmanager-dev.outsystemscloud.com'
-    LifeTimeAPIVersion = 2
-    DevelopmentEnvironment = 'Development'
-    ProductionEnvironment = 'Production'
-    OSPackageVersion = '0.4.0'
-  }
+
   post {
     always {
       dir("${env.ArtifactsFolder}") {
