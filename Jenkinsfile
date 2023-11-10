@@ -26,7 +26,7 @@ pipeline {
     //RegressionEnvironmentLabel = 'Regression'
     //AcceptanceEnvironmentLabel = 'Acceptance'
     //PreProductionEnvironmentLabel = 'PreProduction'
-    ProductionEnvironmentLabel = 'Production'
+    //ProductionEnvironmentLabel = 'Production'
     // Regression URL Specification
     CICDProbeEnvironmentURL = 'https://sysmanager-dev.outsystemscloud.com'
     BDDFrameworkEnvironmentURL = 'https://sysmanager-dev.outsystemscloud.com'
