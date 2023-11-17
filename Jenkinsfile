@@ -13,7 +13,7 @@ pipeline {
     ManifestFolder = "trigger_manifest"
     ManifestFile = "trigger_manifest.json"
     // LifeTime Specific Variables
-    LifeTimeHostname = 'https://sysmanager-dev.outsystemscloud.com/LifeTime'
+    LifeTimeHostname = 'https://sysmanager-dev.outsystemscloud.com'
     LifeTimeAPIVersion = 2
     // Authentication Specific Variables
     AuthorizationToken = 'eyJhbGciOiJSUzI1NiIsImtpZCI6ImQ0YTEzOTMwLTM1ZGItNDQwMi1iN2EyLWVmZWVlN2FmOGIyOCIsInR5cCI6IkpXVCJ9.eyJpYXQiOiIxNjk4MjQ2ODI5Iiwic3ViIjoiTTJVeVpqRXlZMkl0TVdVeFlTMDBZamMyTFRrMU5tRXRZMlEwTVdRNVlUTmtOR1F4IiwianRpIjoiWVVYaTNreXRYayIsImV4cCI6MTc2MTQwNTIyOSwiaXNzIjoibGlmZXRpbWUiLCJhdWQiOiJsaWZldGltZSJ9.fpQNuWMXoGZ_8z8ub-vO6pKJccyxE1iSlqJAisBvS_XO7-X9i6N19EdviXU-D0uXJ4QET8pKsxG18rZ9tigRmd8j4xA5uyA2KQM0t8VEwjvx-wkv1bwhYEADHts4HkhTczRNjfZa_ASaMlf3NUdmRSlfUrAbMN8oICmtzODgxMulz_UAWvBNI8jzBezJHn1hng0u6nFB2Ts7VUaoEedYPahrrIYzhlDmjOJ70NPd-OSBUcONaY7_QdUUe2_SKSBFakMSmaJuHGDqUil9MdE8Nosg4KJSwBo-pwQ8_DvRrL4EU_U_2MrFy3U4zQRuvUZLazSNeZrFjh4C3e_p1jZdrg' //credentials('LifeTimeServiceAccountToken')
@@ -28,8 +28,8 @@ pipeline {
     //PreProductionEnvironmentLabel = 'PreProduction'
     //ProductionEnvironmentLabel = 'Production'
     // Regression URL Specification
-    CICDProbeEnvironmentURL = 'https://sysmanager-dev.outsystemscloud.com/LifeTime/'
-    BDDFrameworkEnvironmentURL = 'https://sysmanager-dev.outsystemscloud.com/LifeTime/'
+    CICDProbeEnvironmentURL = 'https://sysmanager-dev.outsystemscloud.com'
+    BDDFrameworkEnvironmentURL = 'https://sysmanager-dev.outsystemscloud.com'
     // OutSystems PyPI package version
     OSPackageVersion = '0.6.0'
   }
