@@ -1,36 +1,5 @@
 pipeline {
   agent any
-  parameters {
-    string(name: 'ApplicationScope', defaultValue: '', description: 'Comma-separated list of LifeTime applications to deploy.')
-    string(name: 'ApplicationScopeWithTests', defaultValue: '', description: 'Comma-separated list of LifeTime applications to deploy (including test applications)')
-    string(name: 'TriggeredBy', defaultValue: 'N/A', description: 'Name of LifeTime user that triggered the pipeline remotely.')
-  }
-  options { skipStagesAfterUnstable() }
-  environment {
-    // Artifacts Folder
-    ArtifactsFolder = "Artifacts"
-    // Trigger Manifest Specific Variables
-    ManifestFolder = "trigger_manifest"
-    ManifestFile = "trigger_manifest.json"
-    // LifeTime Specific Variables
-    LifeTimeHostname = 'https://sysmanager-dev.outsystemscloud.com'
-    LifeTimeAPIVersion = 2
-    // Authentication Specific Variables
-    AuthorizationToken = credentials('LifeTimeServiceAccountToken')
-    // Environments Specification Variables
-    DevelopmentEnvironment = 'Development'
-    ProductionEnvironment = 'Production'
-    DevelopmentEnvironmentLabel = 'Development'
-    //RegressionEnvironmentLabel = 'Regression'
-    //AcceptanceEnvironmentLabel = 'Acceptance'
-    //PreProductionEnvironmentLabel = 'PreProduction'
-    //ProductionEnvironmentLabel = 'Production'
-    // Regression URL Specification
-    CICDProbeEnvironmentURL = 'https://sysmanager-dev.outsystemscloud.com'
-    BDDFrameworkEnvironmentURL = 'https://sysmanager-dev.outsystemscloud.com'
-    // OutSystems PyPI package version
-    OSPackageVersion = '0.6.0'
-  }
   stages {
     stage('Install Python Dependencies') {
       steps {
@@ -46,10 +15,6 @@ pipeline {
     stage('Get and Deploy Latest Tags') {
       steps {
         withPythonEnv(pythonInstallation: 'python3') {
-
-          //echo "OLA 1"
-          //echo "Auth token: '${env.AuthorizationToken}'"
-          
           echo "Pipeline run triggered remotely by '${params.TriggeredBy}' for the following applications (including tests): '${params.ApplicationScopeWithTests}'"
           sh(script: "python3 -m outsystems.pipeline.fetch_lifetime_data --artifacts \"${env.ArtifactsFolder}\" --lt_url ${env.LifeTimeHostname} --lt_token ${env.AuthorizationToken} --lt_api_version ${env.LifeTimeAPIVersion}", label: 'Retrieve list of Environments and Applications')
           lock(resource: 'deployment-plan-REG') {
@@ -131,7 +96,19 @@ pipeline {
     }
 
   }
-
+  environment {
+    ArtifactsFolder = 'Artifacts'
+    ManifestFolder = 'trigger_manifest'
+    ManifestFile = 'trigger_manifest.json'
+    LifeTimeHostname = 'https://sysmanager-dev.outsystemscloud.com'
+    LifeTimeAPIVersion = 2
+    DevelopmentEnvironment = 'Development'
+    ProductionEnvironment = 'Production'
+    DevelopmentEnvironmentLabel = 'Development'
+    CICDProbeEnvironmentURL = 'https://sysmanager-dev.outsystemscloud.com'
+    BDDFrameworkEnvironmentURL = 'https://sysmanager-dev.outsystemscloud.com'
+    OSPackageVersion = '0.6.0'
+  }
   post {
     always {
       dir("${env.ArtifactsFolder}") {
@@ -154,5 +131,13 @@ pipeline {
 
     }
 
+  }
+  options {
+    skipStagesAfterUnstable()
+  }
+  parameters {
+    string(name: 'ApplicationScope', defaultValue: '', description: 'Comma-separated list of LifeTime applications to deploy.')
+    string(name: 'ApplicationScopeWithTests', defaultValue: '', description: 'Comma-separated list of LifeTime applications to deploy (including test applications)')
+    string(name: 'TriggeredBy', defaultValue: 'N/A', description: 'Name of LifeTime user that triggered the pipeline remotely.')
   }
 }
