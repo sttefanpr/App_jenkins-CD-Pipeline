@@ -18,10 +18,8 @@ pipeline {
     // Authentication Specific Variables
     AuthorizationToken = credentials('LifeTimeServiceAccountToken')
     // Environments Specification Variables
-
     DevelopmentEnvironment = 'Development'
     ProductionEnvironment = 'Production'
-    
     DevelopmentEnvironmentLabel = 'Development'
     //RegressionEnvironmentLabel = 'Regression'
     //AcceptanceEnvironmentLabel = 'Acceptance'
