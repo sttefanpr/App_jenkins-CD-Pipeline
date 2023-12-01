@@ -16,7 +16,7 @@ pipeline {
     LifeTimeHostname = 'https://sysmanager-dev.outsystemscloud.com'
     LifeTimeAPIVersion = 2
     // Authentication Specific Variables
-    AuthorizationToken =eyJhbGciOiJSUzI1NiIsImtpZCI6ImQ0YTEzOTMwLTM1ZGItNDQwMi1iN2EyLWVmZWVlN2FmOGIyOCIsInR5cCI6IkpXVCJ9.eyJpYXQiOiIxNzAxMDkxODE1Iiwic3ViIjoiT1dFellqZzVOell0TTJJeFl5MDBPRFpsTFRnek5ETXROR0U1Tm1ZeU1EY3hORGt6IiwianRpIjoiVU1RVXBjMHdlWiIsImV4cCI6MTcxNjgxNjYxNSwiaXNzIjoibGlmZXRpbWUiLCJhdWQiOiJsaWZldGltZSJ9.b0AfxPv9tMTtMFcyAao76WTnji0elEtXLuL-xmxodEQrpw3G_FQTf6uDQ2AxPMFAc57dHRTDTQBENfTMiX7uKv4kmU0F9De0AgwyKDEV1gSxaUl9qcXekm4yezlBmEtfhX5v11HkRMJq5QmjThfWci1rxBjLNfJVjyv3K3Dvig0tvhqsY4NdFzXOGJHcsFiMGcZEgLzR3OGOGn8Sr9V-2-FYmApA631nz4YKOkZVgySehR-7rZOPANMXQf8KB4kfMcXUO8M19IQD39tOkOLIrtq3VBfRTj-eY63nIBj3QFIxnJF4Hf_EzGnFf2jXpF9QTfRwYwBOnrbIBsn3_HVh4g //credentials('LifeTimeServiceAccountToken')
+    AuthorizationToken = credentials('LifeTimeServiceAccountToken')
     // Environments Specification Variables
     DevelopmentEnvironment = 'Development'
     ProductionEnvironment = 'Production'
