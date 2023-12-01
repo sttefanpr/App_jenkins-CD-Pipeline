@@ -127,8 +127,8 @@ pipeline {
     }
 
   }
-  */
-  environment {
+ 
+   *environment {
     *ArtifactsFolder = 'Artifacts'
     *ManifestFolder = 'trigger_manifest'
     *ManifestFile = 'trigger_manifest.json'
