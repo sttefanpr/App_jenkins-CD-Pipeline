@@ -127,18 +127,20 @@ pipeline {
     }
 
   }
+  */
   environment {
-    ArtifactsFolder = 'Artifacts'
-    ManifestFolder = 'trigger_manifest'
-    ManifestFile = 'trigger_manifest.json'
-    LifeTimeHostname = 'https://sysmanager-dev.outsystemscloud.com'
-    LifeTimeAPIVersion = 2
-    DevelopmentEnvironment = 'Development'
-    ProductionEnvironment = 'Production'
-    DevelopmentEnvironmentLabel = 'Development'
-    CICDProbeEnvironmentURL = 'https://sysmanager-dev.outsystemscloud.com'
-    BDDFrameworkEnvironmentURL = 'https://sysmanager-dev.outsystemscloud.com'
-    OSPackageVersion = '0.6.0'
+    *ArtifactsFolder = 'Artifacts'
+    *ManifestFolder = 'trigger_manifest'
+    *ManifestFile = 'trigger_manifest.json'
+    *LifeTimeHostname = 'https://sysmanager-dev.outsystemscloud.com'
+    *LifeTimeAPIVersion = 2
+    *DevelopmentEnvironment = 'Development'
+    *ProductionEnvironment = 'Production'
+    *DevelopmentEnvironmentLabel = 'Development'
+    *CICDProbeEnvironmentURL = 'https://sysmanager-dev.outsystemscloud.com'
+    *BDDFrameworkEnvironmentURL = 'https://sysmanager-dev.outsystemscloud.com'
+    *OSPackageVersion = '0.6.0'
+    */
   }
   post {
     always {
