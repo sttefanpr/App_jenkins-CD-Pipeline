@@ -14,7 +14,7 @@ pipeline {
     LifeTimeHostname = 'sysmanager-dev.outsystemscloud.com'
     LifeTimeAPIVersion = 2
     // Authentication Specific Variables
-    AuthorizationToken = eyJhbGciOiJSUzI1NiIsImtpZCI6ImQ0YTEzOTMwLTM1ZGItNDQwMi1iN2EyLWVmZWVlN2FmOGIyOCIsInR5cCI6IkpXVCJ9.eyJpYXQiOiIxNzAxNDM3MTkzIiwic3ViIjoiT1RBNU1XWTNOREF0WkdJM05pMDBNalEyTFdFeE9UWXRORFZsWmpjek4yWTBZVFE0IiwianRpIjoiTTNORVdmM0RXTSIsImV4cCI6MTcxNzI0ODM5MywiaXNzIjoibGlmZXRpbWUiLCJhdWQiOiJsaWZldGltZSJ9.TJS4l0prpHfB8mAfq9Qr9jmpqpSB22vFBi9z6K2BcbwdkqGWI_Uhehh4MdlvZgl3MVLtaUdkw03avSngnM3E8FsXx6rshGwI5_tg547qq5KbyyyP-iCfgHYTEh-lZ6wPMjjVBBJh7CweQQGMEUGJJpNBp7dIxwQGSW7oGGA93i_K_0Vd_6KYSsPTReAZWovYtfm7g1cyWt2-H2oZ6zU1q1xVLV5OKDW3JcCWJnZ8Vuf6F_MyG8qJyz7VFMV6KcYomloFlV_5pZoCibKXeW7R456v3s_57b_ttg3eBP8xuziIodeIZpC0pMOLmmQt-1kQrc_CjyGFfUpU4xcHPbfAag //credentials('LifeTimeServiceAccountToken')
+    AuthorizationToken = credentials('LifeTimeServiceAccountToken')
     // Environments Specification Variables
     /*
     * Pipeline for 5 Environments:
@@ -25,7 +25,7 @@ pipeline {
     *   ProductionEnvironment     -> Where your apps are live.
     */
     DevelopmentEnvironment = 'Development'
-    RegressionEnvironment = 'Regression'
+    //RegressionEnvironment = 'Regression'
     AcceptanceEnvironment = 'Acceptance'
     PreProductionEnvironment = 'Pre-Production'
     ProductionEnvironment = 'Production'
@@ -33,7 +33,7 @@ pipeline {
     ProbeEnvironmentURL = 'https://sysmanager-dev.outsystemscloud.com'
     BddEnvironmentURL = 'https://sysmanager-dev.outsystemscloud.com'
     // OutSystems PyPI package version
-    OSPackageVersion = '0.4.0'
+    OSPackageVersion = '0.6.0'
   }
   stages {
     stage('Install Python Dependencies') {
