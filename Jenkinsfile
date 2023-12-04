@@ -62,7 +62,7 @@ pipeline {
       }
     }
     //stage('Run Regression') {
-      when {
+      //when {
         // Checks if there are any test applications in scope before running the regression stage
         //expression { return params.ApplicationScope != params.ApplicationScopeWithTests }
       }
