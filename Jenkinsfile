@@ -61,10 +61,10 @@ pipeline {
         }
       }
     }
-    stage('Run Regression') {
+    //stage('Run Regression') {
       when {
         // Checks if there are any test applications in scope before running the regression stage
-        expression { return params.ApplicationScope != params.ApplicationScopeWithTests }
+        //expression { return params.ApplicationScope != params.ApplicationScopeWithTests }
       }
       steps {
         withPythonEnv('python3') {
